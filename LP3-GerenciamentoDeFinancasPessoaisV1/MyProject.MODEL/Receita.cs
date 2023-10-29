@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyProject.MODEL;
+namespace MyProject.DAL.DBContext;
 
-public partial class Despesa
+public partial class Receita
 {
     public int Id { get; set; }
 
@@ -15,5 +15,9 @@ public partial class Despesa
 
     public int Idcategoria { get; set; }
 
+    public int Idusuario { get; set; }
+
     public virtual Categorium IdcategoriaNavigation { get; set; } = null!;
+
+    public virtual Usuario IdusuarioNavigation { get; set; } = null!;
 }

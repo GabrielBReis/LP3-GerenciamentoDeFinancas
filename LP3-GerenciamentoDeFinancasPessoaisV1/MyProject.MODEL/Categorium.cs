@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyProject.MODEL;
+namespace MyProject.DAL.DBContext;
 
 public partial class Categorium
 {

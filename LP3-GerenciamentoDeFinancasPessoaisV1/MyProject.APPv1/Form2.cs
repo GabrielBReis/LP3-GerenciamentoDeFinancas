@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyProject.DAL.DBContext;
+using MyProject.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +14,24 @@ namespace MyProject.APPv1
 {
     public partial class Form2 : Form
     {
+        public Usuario? Usuario { get; }
+
         public Form2()
         {
             InitializeComponent();
         }
 
+        public Form2(Usuario usuario)
+        {
+            Usuario = usuario;
+        }
+
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }

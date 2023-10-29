@@ -28,52 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Seu Saldo";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            label1.AutoSize = true;
+            label1.Location = new Point(38, 39);
+            label1.Name = "label1";
+            label1.Size = new Size(58, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Seu Saldo";
+            label1.Click += label1_Click;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(590, 272);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 57);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Adicionar Receita";
-            this.button1.UseVisualStyleBackColor = true;
+            button1.Location = new Point(590, 272);
+            button1.Name = "button1";
+            button1.Size = new Size(174, 57);
+            button1.TabIndex = 1;
+            button1.Text = "Adicionar Receita";
+            button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(590, 350);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 57);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Adicionar Despesa";
-            this.button2.UseVisualStyleBackColor = true;
+            button2.Location = new Point(590, 350);
+            button2.Name = "button2";
+            button2.Size = new Size(174, 57);
+            button2.TabIndex = 2;
+            button2.Text = "Adicionar Despesa";
+            button2.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Name = "Form2";
-            this.Text = "Form2";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(label1);
+            Name = "Form2";
+            Text = "Form2";
+            Load += Form2_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

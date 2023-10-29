@@ -1,4 +1,5 @@
-﻿namespace MyProject.APPv1
+﻿using MyProject.BLL;
+namespace MyProject.APPv1
 {
     partial class Form1
     {
@@ -28,77 +29,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
+            label1 = new Label();
+            button1 = new Button();
+            checkBox1 = new CheckBox();
+            txtUsuarioID = new TextBox();
+            txtSenha = new TextBox();
+            txtNome = new TextBox();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(215, 57);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "                                                  Bem Vindo!\r\n                   " +
-    "   Ao seu gerenciador de Finanças Pessoais\r\n";
+            label1.AutoSize = true;
+            label1.Location = new Point(215, 57);
+            label1.Name = "label1";
+            label1.Size = new Size(287, 30);
+            label1.TabIndex = 0;
+            label1.Text = "                                                  Bem Vindo!\r\n                      Ao seu gerenciador de Finanças Pessoais\r\n";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(276, 337);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(191, 64);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Conectar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(276, 337);
+            button1.Name = "button1";
+            button1.Size = new Size(191, 64);
+            button1.TabIndex = 1;
+            button1.Text = "Conectar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(319, 280);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(125, 19);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Manter Conectado";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(319, 280);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(125, 19);
+            checkBox1.TabIndex = 2;
+            checkBox1.Text = "Manter Conectado";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtUsuarioID
             // 
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(253, 203);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 23);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "login";
+            txtUsuarioID.ForeColor = SystemColors.WindowFrame;
+            txtUsuarioID.Location = new Point(253, 159);
+            txtUsuarioID.Name = "txtUsuarioID";
+            txtUsuarioID.Size = new Size(234, 23);
+            txtUsuarioID.TabIndex = 3;
+            txtUsuarioID.Text = "login";
             // 
-            // textBox2
+            // txtSenha
             // 
-            this.textBox2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox2.Location = new System.Drawing.Point(253, 242);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(234, 23);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.Text = "Senha";
+            txtSenha.ForeColor = SystemColors.WindowFrame;
+            txtSenha.Location = new Point(253, 242);
+            txtSenha.Name = "txtSenha";
+            txtSenha.Size = new Size(234, 23);
+            txtSenha.TabIndex = 4;
+            txtSenha.Text = "Senha";
+            // 
+            // txtNome
+            // 
+            txtNome.ForeColor = SystemColors.WindowFrame;
+            txtNome.Location = new Point(253, 200);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(234, 23);
+            txtNome.TabIndex = 5;
+            txtNome.Text = "Nome";
+            txtNome.TextChanged += textBox1_TextChanged;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(txtNome);
+            Controls.Add(txtSenha);
+            Controls.Add(txtUsuarioID);
+            Controls.Add(checkBox1);
+            Controls.Add(button1);
+            Controls.Add(label1);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -106,7 +117,8 @@
         private Label label1;
         private Button button1;
         private CheckBox checkBox1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtUsuarioID;
+        private TextBox txtSenha;
+        private TextBox txtNome;
     }
 }

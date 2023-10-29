@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyProject.MODEL;
 
 namespace MyProject.BLL
 {
@@ -12,7 +13,7 @@ namespace MyProject.BLL
 
         public static void Add(Usuario _usuario)
         {
-            using (var DbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var DbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 DbContext.Add(_usuario);
                 DbContext.SaveChanges();
@@ -21,7 +22,7 @@ namespace MyProject.BLL
 
         public static Usuario GetById(int id)
         {
-            using (var DbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var DbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
 
                 Usuario usuario = DbContext.Usuarios.SingleOrDefault(p => p.Id == id);
@@ -40,7 +41,7 @@ namespace MyProject.BLL
 
         public static List<Usuario> getAll()
         {
-            using (var DbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var DbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var usuario =DbContext.Usuarios.ToList();
                 return usuario;
@@ -50,7 +51,7 @@ namespace MyProject.BLL
 
         public static void Excluir(Usuario _usuario)
         {
-            using (var DbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var DbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var usuario = DbContext.Usuarios.Single(p => p.Id == _usuario.Id);
                 DbContext.Remove(usuario);

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyProject.DAL.DBContext;
+namespace MyProject.MODEL;
 
 public partial class Despesa
 {

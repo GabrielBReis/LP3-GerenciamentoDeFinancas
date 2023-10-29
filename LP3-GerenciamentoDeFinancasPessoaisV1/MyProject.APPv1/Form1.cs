@@ -1,5 +1,7 @@
 using MyProject.BLL;
 using MyProject.DAL.DBContext;
+using MyProject.MODEL;
+
 
 namespace MyProject.APPv1
 {
@@ -52,6 +54,11 @@ namespace MyProject.APPv1
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsuarioID_TextChanged(object sender, EventArgs e)
         {
 
         }

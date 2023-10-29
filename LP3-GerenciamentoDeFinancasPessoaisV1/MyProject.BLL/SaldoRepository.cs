@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MyProject.MODEL;
 
 namespace MyProject.BLL
 {
@@ -11,7 +12,7 @@ namespace MyProject.BLL
     {
         public static void AtualizarSaldo(int usuarioId, double novoSaldo)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var saldo = dbContext.Saldos.SingleOrDefault(s => s.Idusuario == usuarioId);
 
@@ -36,7 +37,7 @@ namespace MyProject.BLL
 
         public static double ObterSaldo(int usuarioId)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var saldo = dbContext.Saldos.SingleOrDefault(s => s.Idusuario == usuarioId);
                 if (saldo != null)

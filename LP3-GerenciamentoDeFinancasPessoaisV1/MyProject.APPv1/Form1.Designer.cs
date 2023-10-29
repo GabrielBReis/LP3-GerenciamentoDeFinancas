@@ -74,6 +74,7 @@ namespace MyProject.APPv1
             txtUsuarioID.Size = new Size(234, 23);
             txtUsuarioID.TabIndex = 3;
             txtUsuarioID.Text = "login";
+            txtUsuarioID.TextChanged += txtUsuarioID_TextChanged;
             // 
             // txtSenha
             // 

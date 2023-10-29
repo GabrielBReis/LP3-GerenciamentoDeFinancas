@@ -1,4 +1,5 @@
 ﻿using MyProject.DAL.DBContext;
+using MyProject.MODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace MyProject.BLL
     {
         public static void Add(Receita _receita)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 dbContext.Receitas.Add(_receita);
                 dbContext.SaveChanges();
@@ -20,7 +21,7 @@ namespace MyProject.BLL
 
         public static Receita GetById(int id)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var receita = dbContext.Receitas.SingleOrDefault(r => r.Id == id);
                 return receita;
@@ -29,7 +30,7 @@ namespace MyProject.BLL
 
         public static List<Receita> GetAll()
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var receitas = dbContext.Receitas.ToList();
                 return receitas;
@@ -38,7 +39,7 @@ namespace MyProject.BLL
 
         public static void Excluir(Receita _receita)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var existingReceita = dbContext.Receitas.SingleOrDefault(r => r.Id == _receita.Id);
                 if (existingReceita != null)
@@ -51,7 +52,7 @@ namespace MyProject.BLL
 
         public static List<Receita> GetReceitasByUsuario(int usuarioId)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var receitas = dbContext.Receitas.Where(r => r.Idusuario == usuarioId).ToList();
                 return receitas;

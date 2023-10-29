@@ -1,4 +1,5 @@
 ﻿using MyProject.DAL.DBContext;
+using MyProject.MODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace MyProject.BLL
     {
         public static void Add(Despesa _despesa)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 dbContext.Despesas.Add(_despesa);
                 dbContext.SaveChanges();
@@ -20,7 +21,7 @@ namespace MyProject.BLL
 
         public static Despesa GetById(int id)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var despesa = dbContext.Despesas.SingleOrDefault(d => d.Id == id);
                 return despesa;
@@ -29,7 +30,7 @@ namespace MyProject.BLL
 
         public static List<Despesa> GetAll()
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var despesas = dbContext.Despesas.ToList();
                 return despesas;
@@ -38,7 +39,7 @@ namespace MyProject.BLL
 
         public static void Excluir(Despesa _despesa)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var existingDespesa = dbContext.Despesas.SingleOrDefault(d => d.Id == _despesa.Id);
                 if (existingDespesa != null)
@@ -51,7 +52,7 @@ namespace MyProject.BLL
 
         public static List<Despesa> GetDespesasByUsuario(int usuarioId)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var despesas = dbContext.Despesas.Where(d => d.Idusuario == usuarioId).ToList();
                 return despesas;

@@ -1,4 +1,5 @@
 ﻿using MyProject.DAL.DBContext;
+using MyProject.MODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace MyProject.BLL
     {
         public static void Add(Categorium _categoria)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 dbContext.Categoria.Add(_categoria);
                 dbContext.SaveChanges();
@@ -20,7 +21,7 @@ namespace MyProject.BLL
 
         public static Categorium GetById(int id)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var categoria = dbContext.Categoria.SingleOrDefault(c => c.Id == id);
                 return categoria;
@@ -29,7 +30,7 @@ namespace MyProject.BLL
 
         public static List<Categorium> GetAll()
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var categorias = dbContext.Categoria.ToList();
                 return categorias;
@@ -38,7 +39,7 @@ namespace MyProject.BLL
 
         public static void Excluir(Categorium _categoria)
         {
-            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            using (var dbContext = new CUsersPichauSourceReposLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabaseMdfContext())
             {
                 var existingCategoria = dbContext.Categoria.SingleOrDefault(c => c.Id == _categoria.Id);
                 if (existingCategoria != null)

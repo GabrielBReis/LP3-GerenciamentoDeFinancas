@@ -38,6 +38,25 @@ namespace MyProject.BLL
 
         }
 
+        public static Usuario GetBySenha(String _senha)
+        {
+            using (var DbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            {
+
+                Usuario usuario = DbContext.Usuarios.SingleOrDefault(p => p.Senha == _senha);
+
+                if (usuario != null)
+                {
+                    return usuario;
+                }
+                else
+                {
+                    return null; // Retorna null se o usuário não for encontrado
+                }
+            }
+
+        }
+
         public static List<Usuario> getAll()
         {
             using (var DbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())

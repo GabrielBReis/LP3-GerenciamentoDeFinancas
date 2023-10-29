@@ -30,7 +30,7 @@ namespace MyProject.APPv1
         private void InitializeComponent()
         {
             label1 = new Label();
-            button1 = new Button();
+            btnConectar = new Button();
             checkBox1 = new CheckBox();
             txtUsuarioID = new TextBox();
             txtSenha = new TextBox();
@@ -46,15 +46,15 @@ namespace MyProject.APPv1
             label1.TabIndex = 0;
             label1.Text = "                                                  Bem Vindo!\r\n                      Ao seu gerenciador de Finanças Pessoais\r\n";
             // 
-            // button1
+            // btnConectar
             // 
-            button1.Location = new Point(276, 337);
-            button1.Name = "button1";
-            button1.Size = new Size(191, 64);
-            button1.TabIndex = 1;
-            button1.Text = "Conectar";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnConectar.Location = new Point(276, 337);
+            btnConectar.Name = "btnConectar";
+            btnConectar.Size = new Size(191, 64);
+            btnConectar.TabIndex = 1;
+            btnConectar.Text = "Conectar";
+            btnConectar.UseVisualStyleBackColor = true;
+            btnConectar.Click += button1_Click;
             // 
             // checkBox1
             // 
@@ -103,7 +103,7 @@ namespace MyProject.APPv1
             Controls.Add(txtSenha);
             Controls.Add(txtUsuarioID);
             Controls.Add(checkBox1);
-            Controls.Add(button1);
+            Controls.Add(btnConectar);
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
@@ -115,7 +115,7 @@ namespace MyProject.APPv1
         #endregion
 
         private Label label1;
-        private Button button1;
+        private Button btnConectar;
         private CheckBox checkBox1;
         private TextBox txtUsuarioID;
         private TextBox txtSenha;

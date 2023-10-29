@@ -5,9 +5,11 @@ namespace MyProject.APPv1
 {
     public partial class Form1 : Form
     {
+        private Form2 form2;
         public Form1()
         {
             InitializeComponent();
+            form2 = new Form2();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,7 +48,7 @@ namespace MyProject.APPv1
             }
 
             // Agora você pode prosseguir para a próxima tela
-            Form2 form2 = new Form2(usuario);
+            form2.Usuario = usuario;
             form2.Show(); // Use Show() para abrir o formulário sem bloquear o Form1
             this.Hide(); // Oculta a tela de login
         }

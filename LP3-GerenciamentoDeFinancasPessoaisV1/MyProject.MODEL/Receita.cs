@@ -20,4 +20,6 @@ public partial class Receita
     public virtual Categorium IdcategoriaNavigation { get; set; } = null!;
 
     public virtual Usuario IdusuarioNavigation { get; set; } = null!;
+
+   
 }

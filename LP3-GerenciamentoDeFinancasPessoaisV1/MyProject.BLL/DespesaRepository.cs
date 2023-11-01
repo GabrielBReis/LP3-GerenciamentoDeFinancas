@@ -27,6 +27,44 @@ namespace MyProject.BLL
             }
         }
 
+        public static int GetLastDespesaId()
+        {
+            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            {
+                var lastDespesa = dbContext.Despesas.OrderByDescending(d => d.Id).FirstOrDefault();
+
+                if (lastDespesa != null)
+                {
+                    return lastDespesa.Id;
+                }
+                else
+                {
+                    return 0; // Retorna 0 se não houver despesas na tabela.
+                }
+            }
+        }
+
+        public static void Update(Despesa despesa)
+        {
+            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            {
+                var existingDespesa = dbContext.Despesas.SingleOrDefault(d => d.Id == despesa.Id);
+
+                if (existingDespesa != null)
+                {
+                    existingDespesa.Data = despesa.Data;
+                    existingDespesa.Valor = despesa.Valor;
+                    existingDespesa.Descricao = despesa.Descricao;
+                    existingDespesa.Idcategoria = despesa.Idcategoria;
+                    existingDespesa.Idusuario = despesa.Idusuario;
+
+                    dbContext.SaveChanges();
+                }
+            }
+        }
+
+
+
         public static List<Despesa> GetAll()
         {
             using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())

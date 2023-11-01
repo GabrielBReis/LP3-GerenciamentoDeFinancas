@@ -27,6 +27,23 @@ namespace MyProject.BLL
             }
         }
 
+        public static int GetLastReceitaId()
+        {
+            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            {
+                var lastReceita = dbContext.Receitas.OrderByDescending(r => r.Id).FirstOrDefault();
+
+                if (lastReceita != null)
+                {
+                    return lastReceita.Id;
+                }
+                else
+                {
+                    return 0; // Retorna 0 se não houver receitas na tabela.
+                }
+            }
+        }
+
         public static List<Receita> GetAll()
         {
             using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
@@ -49,6 +66,26 @@ namespace MyProject.BLL
             }
         }
 
+        public static void Update(Receita receita)
+        {
+            using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
+            {
+                var existingReceita = dbContext.Receitas.SingleOrDefault(r => r.Id == receita.Id);
+
+                if (existingReceita != null)
+                {
+                    existingReceita.Data = receita.Data;
+                    existingReceita.Valor = receita.Valor;
+                    existingReceita.Descricao = receita.Descricao;
+                    existingReceita.Idcategoria = receita.Idcategoria;
+                    existingReceita.Idusuario = receita.Idusuario;
+
+                    dbContext.SaveChanges();
+                }
+            }
+        }
+
+
         public static List<Receita> GetReceitasByUsuario(int usuarioId)
         {
             using (var dbContext = new CUsersGBRDocumentsRepositoriovsLp3Gerenciamentodefinancaspessoaisv1MyprojectDalDatabaseDatabase1MdfContext())
@@ -57,5 +94,6 @@ namespace MyProject.BLL
                 return receitas;
             }
         }
+
     }
 }

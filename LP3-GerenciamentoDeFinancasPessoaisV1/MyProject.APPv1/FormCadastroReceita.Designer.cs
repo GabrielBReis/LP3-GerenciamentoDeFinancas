@@ -38,10 +38,10 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            txtCategoria = new TextBox();
             listViewCategorias = new ListView();
             label6 = new Label();
             label7 = new Label();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // txtSenha
@@ -127,13 +127,6 @@
             label5.TabIndex = 10;
             label5.Text = "Categoria";
             // 
-            // txtCategoria
-            // 
-            txtCategoria.Location = new Point(142, 294);
-            txtCategoria.Name = "txtCategoria";
-            txtCategoria.Size = new Size(167, 23);
-            txtCategoria.TabIndex = 11;
-            // 
             // listViewCategorias
             // 
             listViewCategorias.Location = new Point(504, 134);
@@ -162,15 +155,24 @@
             label7.TabIndex = 14;
             label7.Text = "Categorias ";
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(142, 302);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(167, 23);
+            comboBox1.TabIndex = 15;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
             // FormCadastroReceita
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(comboBox1);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(listViewCategorias);
-            Controls.Add(txtCategoria);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -187,6 +189,7 @@
             PerformLayout();
         }
 
+      
         #endregion
         private TextBox txtSenha;
         private TextBox txtData;
@@ -198,9 +201,9 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox txtCategoria;
         private ListView listViewCategorias;
         private Label label6;
         private Label label7;
+        private ComboBox comboBox1;
     }
 }

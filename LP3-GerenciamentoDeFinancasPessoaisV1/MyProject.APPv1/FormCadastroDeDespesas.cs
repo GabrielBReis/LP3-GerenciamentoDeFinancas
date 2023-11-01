@@ -6,59 +6,69 @@ using System.Windows.Forms;
 
 namespace MyProject.APPv1
 {
-    public partial class FormCadastroReceita : Form
+    public partial class FormCadastroDeDespesas : Form
     {
-        public FormCadastroReceita()
+        public FormCadastroDeDespesas()
         {
             InitializeComponent();
+            
+        }
+
+        private void FormCadastroDeDespesas_Load(object sender, EventArgs e)
+        {
             PreencherComboBoxCategorias();
+        }
+
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            // Lógica a ser executada quando o label6 for clicado (pode ser deixado vazio por enquanto).
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Código que você deseja executar quando a seleção do ComboBox for alterada
+            // Lógica a ser executada quando o índice selecionado no comboBox1 for alterado (pode ser deixado vazio por enquanto).
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            DateTime data = DateTime.Parse(txtData.Text);
-            double valor = double.Parse(txtValor.Text);
-            string descricao = txtDescricao.Text;
+            DateTime data = DateTime.Parse(textBox1.Text);
+            double valor = double.Parse(textBox2.Text);
+            string descricao = textBox3.Text;
             string nomeCategoria = comboBox1.SelectedItem.ToString();
-            string senha = txtSenha.Text;
+            string senha = textBox4.Text;
+
             Usuario usuario = UsuarioRepository.GetBySenha(senha);
 
             if (usuario != null)
             {
-                //int categoria = int.Parse(comboBox1.SelectedValue.ToString()); // Obtém o valor selecionado do ComboBox
-
                 Categorium categoria = CategoriaRepository.GetByNome(nomeCategoria);
-
 
                 if (categoria != null)
                 {
-                    int nextDespesaId = ReceitaRepository.GetLastReceitaId() + 1;
-                    Receita receita = new Receita
+                    int nextDespesaId = DespesaRepository.GetLastDespesaId() + 1;
+
+                    Despesa despesa = new Despesa
                     {
                         Id = nextDespesaId,
                         Data = data,
                         Valor = valor,
                         Descricao = descricao,
                         Idcategoria = categoria.Id,
-                        Idusuario = usuario.Id
+                        Idusuario = usuario.Id,
                     };
 
-                    ReceitaRepository.Add(receita);
-                    MessageBox.Show("Receita cadastrada com sucesso!");
+                    DespesaRepository.Add(despesa);
+                    MessageBox.Show("Despesa cadastrada com sucesso!");
                 }
                 else
                 {
-                    MessageBox.Show("Usuário não encontrado. Verifique o login.");
+                    MessageBox.Show("Categoria não encontrada. Verifique a seleção.");
                 }
             }
             else
             {
-                MessageBox.Show("Selecione uma categoria válida.");
+                MessageBox.Show("Usuário não encontrado. Verifique a senha.");
             }
         }
 

@@ -40,11 +40,12 @@ namespace MyProject.APPv1
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(215, 57);
+            label1.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(-73, 38);
             label1.Name = "label1";
-            label1.Size = new Size(287, 30);
+            label1.Size = new Size(779, 92);
             label1.TabIndex = 0;
-            label1.Text = "                                                  Bem Vindo!\r\n                      Ao seu gerenciador de Finanças Pessoais\r\n";
+            label1.Text = "                                            Bem Vindo!\r\n                 Ao seu gerenciador de Finanças Pessoais\r\n";
             // 
             // btnConectar
             // 

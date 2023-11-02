@@ -1,8 +1,5 @@
 ﻿using MyProject.BLL;
 using MyProject.DAL.DBContext;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace MyProject.APPv1
 {
@@ -24,18 +21,14 @@ namespace MyProject.APPv1
         private void Form2_Load(object sender, EventArgs e)
         {
             AtualizarDataGridView();
-            AtualizarSaldoTotal(); // Atualiza o saldo total ao carregar o formulário
+            AtualizarSaldoTotal();
         }
 
         private void AtualizarDataGridView()
         {
             dataGridView1.Rows.Clear();
-
-            // 1. Obter as receitas e despesas associadas ao usuário logado
             List<Receita> receitas = ReceitaRepository.GetReceitasByUsuario(Usuario.Id);
             List<Despesa> despesas = DespesaRepository.GetDespesasByUsuario(Usuario.Id);
-
-            // 2. Preencher o DataGridView com os dados das receitas
             foreach (Receita receita in receitas)
             {
                 Categorium categoria = CategoriaRepository.GetById(receita.Idcategoria);
@@ -43,8 +36,6 @@ namespace MyProject.APPv1
 
                 dataGridView1.Rows.Add("Receita", receita.Data, receita.Valor, receita.Descricao, nomeCategoria);
             }
-
-            // 3. Preencher o DataGridView com os dados das despesas
             foreach (Despesa despesa in despesas)
             {
                 Categorium categoria = CategoriaRepository.GetById(despesa.Idcategoria);
@@ -52,36 +43,34 @@ namespace MyProject.APPv1
 
                 dataGridView1.Rows.Add("Despesa", despesa.Data, despesa.Valor, despesa.Descricao, nomeCategoria);
             }
-
-            // Após atualizar o DataGridView, também atualize o saldo total
             AtualizarSaldoTotal();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             FormCadastroDeCategoria formCadastroDeCategoria = new FormCadastroDeCategoria();
-            formCadastroDeCategoria.ShowDialog(); // Use ShowDialog para exibir o formulário de forma modal
+            formCadastroDeCategoria.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             FormCadastroDeDespesas formCadastroDeDespesa = new FormCadastroDeDespesas();
-            formCadastroDeDespesa.ShowDialog(); // Use ShowDialog para exibir o formulário de forma modal
-            AtualizarDataGridView(); // Atualiza o DataGridView após adicionar uma despesa
+            formCadastroDeDespesa.ShowDialog();
+            AtualizarDataGridView();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             FormCadastroReceita formCadastroReceita = new FormCadastroReceita();
-            formCadastroReceita.ShowDialog(); // Use ShowDialog para exibir o formulário de forma modal
-            AtualizarDataGridView(); // Atualiza o DataGridView após adicionar uma receita
+            formCadastroReceita.ShowDialog();
+            AtualizarDataGridView();
         }
 
         private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             if (dataGridView1.CurrentCell.ColumnIndex == dataGridView1.Columns["Categoria"].Index)
             {
-                // Verifique se a célula atual é a coluna de Categoria
+
                 ComboBox comboBox = e.Control as ComboBox;
 
                 if (comboBox != null)
@@ -94,7 +83,6 @@ namespace MyProject.APPv1
 
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Manipular a seleção no ComboBox
 
             ComboBox comboBox = (ComboBox)sender;
             string novaCategoria = comboBox.SelectedItem.ToString();
@@ -124,12 +112,12 @@ namespace MyProject.APPv1
 
         private int GetReceitaIdFromRow(int rowIndex)
         {
-            // Obtenha o ID da receita com base no valor da célula do grid na coluna da ID da receita
+
             if (int.TryParse(dataGridView1.Rows[rowIndex].Cells["ID da Receita"].Value.ToString(), out int receitaId))
             {
                 return receitaId;
             }
-            return -1; // Ou outra ação apropriada em caso de erro
+            return -1;
         }
 
         private void UpdateCategoriaDaReceita(int receitaId, string novaCategoria)
@@ -142,7 +130,7 @@ namespace MyProject.APPv1
                 if (categoria != null)
                 {
                     receita.Idcategoria = categoria.Id;
-                    ReceitaRepository.Update(receita); // Implemente esta função para atualizar a receita
+                    ReceitaRepository.Update(receita);
                 }
                 else
                 {
@@ -157,12 +145,12 @@ namespace MyProject.APPv1
 
         private int GetDespesaIdFromRow(int rowIndex)
         {
-            // Obtenha o ID da despesa com base no valor da célula do grid na coluna da ID da despesa
+
             if (int.TryParse(dataGridView1.Rows[rowIndex].Cells["ID da Despesa"].Value.ToString(), out int despesaId))
             {
                 return despesaId;
             }
-            return -1; // Ou outra ação apropriada em caso de erro
+            return -1;
         }
 
         private void UpdateCategoriaDaDespesa(int despesaId, string novaCategoria)
@@ -175,7 +163,7 @@ namespace MyProject.APPv1
                 if (categoria != null)
                 {
                     despesa.Idcategoria = categoria.Id;
-                    DespesaRepository.Update(despesa); // Implemente esta função para atualizar a despesa
+                    DespesaRepository.Update(despesa);
                 }
                 else
                 {
@@ -199,14 +187,14 @@ namespace MyProject.APPv1
 
             double saldoTotal = totalReceitas - totalDespesas;
 
-            labelSaldoTotal.Visible = true; // Torna o Label visível
+            labelSaldoTotal.Visible = true;
             if (saldoTotal >= 0)
             {
-                labelSaldoTotal.ForeColor = Color.Green; // Define a cor verde para valores positivos
+                labelSaldoTotal.ForeColor = Color.Green;
             }
             else
             {
-                labelSaldoTotal.ForeColor = Color.Red; // Define a cor vermelha para valores negativos
+                labelSaldoTotal.ForeColor = Color.Red;
             }
             labelSaldoTotal.Text = "Saldo Total: " + saldoTotal.ToString("C");
         }

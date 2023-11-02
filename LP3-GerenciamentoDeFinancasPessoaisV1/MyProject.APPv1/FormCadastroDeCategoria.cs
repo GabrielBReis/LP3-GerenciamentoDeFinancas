@@ -24,7 +24,6 @@ namespace MyProject.APPv1
             string nomeCategoria = txtNome.Text;
             string descricao = txtDescricao.Text;
 
-            // Calcula o próximo ID manualmente
             int proximoId = CategoriaRepository.GetNextCategoryId();
 
             Categorium novaCategoria = new Categorium

@@ -51,7 +51,7 @@ namespace MyProject.BLL
                 }
                 else
                 {
-                    return null; // Retorna null se o usuário não for encontrado
+                    return null; 
                 }
             }
 

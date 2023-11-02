@@ -20,4 +20,8 @@
     <ProjectReference Include="..\MyProject.MODEL\MyProject.MODEL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="tabelas\" />
+  </ItemGroup>
+
 </Project>

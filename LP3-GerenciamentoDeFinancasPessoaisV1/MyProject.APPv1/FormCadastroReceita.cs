@@ -16,7 +16,7 @@ namespace MyProject.APPv1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Código que você deseja executar quando a seleção do ComboBox for alterada
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -30,7 +30,6 @@ namespace MyProject.APPv1
 
             if (usuario != null)
             {
-                //int categoria = int.Parse(comboBox1.SelectedValue.ToString()); // Obtém o valor selecionado do ComboBox
 
                 Categorium categoria = CategoriaRepository.GetByNome(nomeCategoria);
 
@@ -70,6 +69,11 @@ namespace MyProject.APPv1
             {
                 comboBox1.Items.Add(categoria.Nome);
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

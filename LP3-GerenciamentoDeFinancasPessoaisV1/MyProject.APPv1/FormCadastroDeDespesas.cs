@@ -22,12 +22,12 @@ namespace MyProject.APPv1
 
         private void label6_Click(object sender, EventArgs e)
         {
-            // Lógica a ser executada quando o label6 for clicado (pode ser deixado vazio por enquanto).
+           
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Lógica a ser executada quando o índice selecionado no comboBox1 for alterado (pode ser deixado vazio por enquanto).
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

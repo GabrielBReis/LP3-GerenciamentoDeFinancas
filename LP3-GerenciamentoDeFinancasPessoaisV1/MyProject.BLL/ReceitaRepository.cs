@@ -39,7 +39,7 @@ namespace MyProject.BLL
                 }
                 else
                 {
-                    return 0; // Retorna 0 se não houver receitas na tabela.
+                    return 0; 
                 }
             }
         }

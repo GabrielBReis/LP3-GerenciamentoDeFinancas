@@ -21,7 +21,7 @@ namespace MyProject.BLL
                 }
                 else
                 {
-                    // Se não existir um saldo para o usuário, crie um novo.
+                    
                     saldo = new Saldo
                     {
                         Idusuario = usuarioId,
@@ -45,7 +45,7 @@ namespace MyProject.BLL
                 }
                 else
                 {
-                    return 0; // Se o saldo não existir, retorne zero.
+                    return 0; 
                 }
             }
         }
